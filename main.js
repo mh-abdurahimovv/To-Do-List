@@ -1,4 +1,12 @@
 
+// Try to work with arrays and objects
+// for example you have an array of tasks
+
+// [ "Read book", "Clean house" ]
+
+// and you will have a function which takes this array a creates html elements and renders it in html
+// And that's it you will have to work only items in array and render html every time array will change
+
 window.addEventListener('load', function() {
     const form = document.getElementById('new-task-form')
           input = document.getElementById('new-task-input') 
@@ -40,6 +48,8 @@ window.addEventListener('load', function() {
         const taskEditElem = document.createElement('button');
         taskEditElem.classList.add('edit')
         taskEditElem.innerHTML = 'Edit';
+	    
+	// Maybe you will remove these css styles and append styles to class delete
         taskEditElem.style = `
         cursor: pointer;
 	    margin: 0 0.5rem;
@@ -55,7 +65,9 @@ window.addEventListener('load', function() {
         const taskDelElem = document.createElement('button');
         taskDelElem.classList.add('delete')
         taskDelElem.innerHTML = 'Delete';
-        taskDelElem.style = `
+
+    	// same here
+    	taskDelElem.style = `
         cursor: pointer;
 	    margin: 0 0.5rem;
         font-size: 1.125rem;
@@ -79,7 +91,7 @@ window.addEventListener('load', function() {
         taskEditElem.addEventListener('click', function() {
             if (taskEditElem.innerText.toLowerCase() === 'edit') {
                 taskInputElem.removeAttribute('readonly');
-                taskInputElem.focus()
+                taskInputElem.focus() // <-- it is creative
                 taskEditElem.innerText = 'Save'
             } else {
                 taskInputElem.setAttribute('readonle', 'readonly');
@@ -91,6 +103,7 @@ window.addEventListener('load', function() {
             taskElem.remove()
         })
 
+	// You are storing data to localstorage, but not getting it from there
         window.localStorage.setItem('todos', taskElem);
        
         
